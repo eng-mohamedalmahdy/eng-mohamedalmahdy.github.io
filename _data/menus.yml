@@ -1,0 +1,47 @@
+default:
+  en:
+    - title: Home
+      url: /
+
+    - title: Projects
+      url: /projects
+      menu:
+        - title: Zakerly
+          url : /projects/zakerly
+        - title: Violet
+          url: /projects/violet
+        - title: MyIslamicApp
+          url: /projects/myislamicapp
+        - title: Giga man
+          url: /projects/gigaman
+        - title: Schedule me
+          url:  /projects/ScheduleMe
+        - title: Memorise
+          url:  /projects/memorise
+        - title: Azkar
+          url:  /projects/azkar
+        - title: Space war
+          url: /projects/spacewar
+        - title: Library
+          url : /projects/library
+        - title: Snake
+          url: /projects/snake
+        - title: Numerical Analysis
+          url: /projects/numerical-analysis
+        - title: Before 9 3/4 train
+          url: /projects/b4934
+
+
+    - title: Courses
+      url: /courses
+      menu:
+        - title: Android development in java
+          url: /courses/android
+        - title: MyIslammicApp live sessions
+          url: /courses/islamic-app
+        - title: Kotlin course
+          url:  /courses/kotlin
+
+    - title: About
+      url: /about
+

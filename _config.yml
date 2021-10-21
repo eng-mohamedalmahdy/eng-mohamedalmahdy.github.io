@@ -1,0 +1,108 @@
+# Site settings
+street_address:
+city: Cairo
+state:
+zip_code:
+country: Egypt
+name: Mohamed Almahdy
+phone: +201096475710
+
+# Social settings
+500px:
+  url:
+  label:
+facebook:
+  url: https://www.facebook.com/mohamed.almahdy.7311/
+  label:
+github:
+  url: https://github.com/eng-mohamedalmahdy
+  label:
+linkedin:
+  url: https://www.linkedin.com/in/mohamed-almahdy-592949187/
+  label:
+
+# Optional elements
+logo: /assets/images/logo.png
+legal_terms:
+  url: /en/legal-terms/
+privacy_policy:
+  url: /en/privacy-policy/
+  third_party:
+    hosting: github
+
+
+# Default settings
+defaults:
+  - scope:
+      type: "redirects"
+    values:
+      layout: "redirect"
+      lang: "x-default"
+  - scope:
+      path: ""
+    values:
+      menu: default
+  -
+    scope:
+      path: "en"
+    values:
+      lang: "en"
+  -
+    scope:
+      path: "fr"
+    values:
+      lang: "fr"
+
+# Build settings
+permalink: pretty
+markdown: kramdown
+sass:
+  sourcemap: never
+  style: compressed
+
+
+# Publication settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site, e.g. http://example.com
+author: Mohamed Almahdy
+
+# Exclude from processing
+title: Light feathers
+email: engmohamedalmahdy@gmail.com
+menu : default
+description: >- # this means to ignore newlines until "baseurl:"
+  A Technical blog for mobile
+                   development technologies <br />managed by <a href="https://github.com/eng-mohamedalmahdy">Mohamed Almahdy</a>
+github_username:  eng-mohamedalmahdy
+
+
+# Build settings
+theme: jekyll-theme-consulting
+remote_theme: jekyll-theme-consulting
+
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-redirect-from
+
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
