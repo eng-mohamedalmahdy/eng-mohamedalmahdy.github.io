@@ -60,6 +60,7 @@ sass:
   sass_dir: _sass
   style: compressed
   
+remote_theme: pages-themes/primer@v0.2.0
 
 
 # Publication settings
@@ -81,6 +82,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-redirect-from
+  - jekyll-remote-theme
 
 
 # Exclude from processing.
