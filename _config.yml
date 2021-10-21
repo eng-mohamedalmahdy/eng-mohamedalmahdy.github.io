@@ -58,14 +58,13 @@ permalink: pretty
 markdown: kramdown
 sass:
   sass_dir: _sass
-  sourcemap: never
   style: compressed
   
 
 
 # Publication settings
-baseurl: "https://eng-mohamedalmahdy.github.io/" # https://eng-mohamedalmahdy.github.io/
-url: "" # http://127.0.0.1:4000
+baseurl: "" # https://eng-mohamedalmahdy.github.io/
+url: "http://127.0.0.1:4000" # http://127.0.0.1:4000
 author: Mohamed Almahdy
 
 # Exclude from processing
