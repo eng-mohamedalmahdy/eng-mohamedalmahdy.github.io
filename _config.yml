@@ -67,8 +67,8 @@ remote-theme: apehex/jekyll-theme-consulting
 
 
 # Publication settings
-baseurl: "https://eng-mohamedalmahdy.github.io/" # https://eng-mohamedalmahdy.github.io/
-url: "" # http://127.0.0.1:4000
+baseurl: "" # https://eng-mohamedalmahdy.github.io/
+url: "https://eng-mohamedalmahdy.github.io/" # http://127.0.0.1:4000
 author: Mohamed Almahdy
 
 # Exclude from processing
