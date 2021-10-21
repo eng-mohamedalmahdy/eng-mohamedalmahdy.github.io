@@ -1,0 +1,81 @@
+<script type="text/javascript">
+    const contactFormElement = document.getElementById("{{ include.form_id | default: 'contact-form' }}");
+    const nameInputElement = document.getElementById("{{ include.name_input_id | default: 'contact-name' }}");
+    const emailInputElement = document.getElementById("{{ include.email_input_id | default: 'contact-email' }}");
+    const messageInputElement = document.getElementById("{{ include.message_input_id | default: 'contact-message' }}");
+    const submitInputElement = document.getElementById("{{ include.submit_input_id | default: 'contact-submit-button' }}");
+    const modalWindowElement = document.getElementById("{{ include.modal_window_id | default: 'modal-recaptcha-window' }}");
+    var recaptchaWidget;
+
+    const isInputValid = function() {
+        return (nameInputElement.checkValidity()
+            && emailInputElement.checkValidity()
+            && messageInputElement.checkValidity())
+    };
+
+    const disableSubmitInputElement = function (disabled = true) {
+        submitInputElement.disabled = disabled;
+    }
+
+    const {{ include.onfocusout_callback | default: 'toggleSubmitInputElement' }} = function() {
+        if (isInputValid()) {
+            disableSubmitInputElement(false);
+        } else {
+            disableSubmitInputElement();
+        }
+    };
+
+    const showModalWindow = function() {
+        modalWindowElement.classList.add('visible');
+        modalWindowElement.classList.add('loaded');
+        modalWindowElement.focus();
+    }
+
+    const hideModalWindow = function() {
+        modalWindowElement.classList.remove('loaded');
+        modalWindowElement.classList.remove('visible');
+        contactFormElement.focus();
+    }
+
+    const {{ include.onsubmit_callback | default: 'processContactRequest' }} = function() {
+        if (grecaptcha.getResponse(recaptchaWidget).length > 0) {
+            sendContactMessage();
+            hideModalWindow();
+            resetContactForm();
+            grecaptcha.reset();
+        } else {
+            showModalWindow();
+        }
+    };
+
+    const {{ include.onreset_callback | default: 'resetContactForm' }} = function() {
+        contactFormElement.reset();
+        disableSubmitInputElement();
+    };
+    
+    const sendContactMessage = function() {
+        const formData = new FormData();
+        formData.append('name', encodeURI(nameInputElement.value));
+        formData.append('email', encodeURI(emailInputElement.value));
+        formData.append('message', encodeURI(messageInputElement.value));
+        formData.append('token', grecaptcha.getResponse(recaptchaWidget));
+        
+        fetch("{{ '/contact.php' | absolute_url }}", {
+            method: 'POST',
+            body: formData})
+        .then((response) => alert('Message sent!'))
+        .catch((error) => console.error('Error:', error));
+    };
+    
+    var onRecaptchaLoadCallback = function() {
+        recaptchaWidget = grecaptcha.render("{{ include.recaptcha_widget_id | default: 'recaptcha-checkbox' }}", {
+            'sitekey' : '{{ site.recaptcha.sitekey }}',
+            'theme' : 'dark',
+            'size' : 'compact',
+            'callback' : processContactRequest});
+    };
+
+    modalWindowElement.addEventListener('click', hideModalWindow);
+    modalWindowElement.addEventListener('keyup', hideModalWindow);
+</script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoadCallback&render=explicit" async defer></script>

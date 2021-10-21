@@ -1,0 +1,112 @@
+/*
+    Hide the radio buttons
+*/
+
+.horizontal-tabset > input[type="radio"] {
+    position: absolute;
+    left: -200vw;
+}
+
+/*
+    Toggle
+*/
+
+.horizontal-tabset .tab-panel {
+    display: none;
+}
+
+.horizontal-tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.horizontal-tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.horizontal-tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.horizontal-tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.horizontal-tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.horizontal-tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+    display: block;
+}
+
+/*
+    Common style
+*/
+
+.horizontal-tabset > input[type="radio"] + label {
+    position: relative;
+    display: inline-block;
+    margin: 0 !important;
+    padding: 15px 15px 25px !important;
+    border: 2px solid transparent;
+    border-bottom: 0;
+    cursor: pointer;
+    font-weight: bold;
+    z-index: 100;
+
+    &::before {
+        display: none !important;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 15px;
+        bottom: 10px;
+        width: 22px;
+        height: 4px;
+        background: _palette(border);
+    }
+}
+
+.horizontal-tabset .tab-panels .tab-panel {
+    padding: 30px 0 !important;
+    border-top: 2px solid _palette(accent);
+}
+
+/*
+    Active style
+*/
+
+.horizontal-tabset > label:hover,
+.horizontal-tabset > input[type="radio"]:focus + label {
+    color: _palette(accent) !important;
+}
+
+.horizontal-tabset > label:hover::after,
+.horizontal-tabset > input[type="radio"]:focus + label::after,
+.horizontal-tabset > input[type="radio"]:checked + label::after {
+    background: _palette(accent);
+}
+
+.horizontal-tabset > input[type="radio"]:checked + label {
+    border-color: _palette(accent);
+    border-bottom: 2px solid _palette(bg);
+    margin: 0 0 -2px 0 !important;
+}
+
+/*
+    Inverted
+*/
+
+.inverted .horizontal-tabset > input[type="radio"] + label {
+    color: _palette(fg-inverted);
+
+    &::after {
+        background: _palette(border-inverted);
+    }
+}
+
+/*
+    Inverted & active
+*/
+
+.inverted .horizontal-tabset > label:hover,
+.inverted .horizontal-tabset > input[type="radio"]:focus + label {
+    color: _palette(accent);
+}
+
+.inverted .horizontal-tabset > label:hover::after,
+.inverted .horizontal-tabset > input[type="radio"]:focus + label::after,
+.inverted .horizontal-tabset > input[type="radio"]:checked + label::after {
+    background: _palette(accent);
+}
+
+.inverted .horizontal-tabset > input[type="radio"]:checked + label {
+    border-bottom: 2px solid _palette(bg-alt-inverted);
+}

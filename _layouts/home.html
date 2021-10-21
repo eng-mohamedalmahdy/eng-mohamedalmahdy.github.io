@@ -1,0 +1,9 @@
+---
+layout: default
+---
+{%- assign header = page.header | default: layout.header | default: site.header -%}
+{%- assign banner = page.banner | default: layout.banner | default: site.banner -%}
+{%- assign background = page.background | default: layout.background | default: site.background -%}
+
+{% include front.html header=header banner=banner background=background %}
+{{ content }}

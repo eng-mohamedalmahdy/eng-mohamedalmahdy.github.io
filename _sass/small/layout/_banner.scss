@@ -1,0 +1,11 @@
+/* Banner */
+
+#banner {
+    @include orientation(portrait) {
+        @include breakpoint('<=xsmall') {
+            .image {
+                max-height: 35vh;
+            }
+        }
+    }
+}

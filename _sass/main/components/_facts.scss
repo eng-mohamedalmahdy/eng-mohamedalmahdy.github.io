@@ -1,0 +1,176 @@
+/* Facts */
+
+.facts {
+    $gutter: 1px;
+
+    @include vendor('display', 'flex');
+    @include vendor('flex-wrap', 'wrap');
+    margin: 0 !important;
+    width: 100%;
+
+    article {
+        @include vendor('flex-grow', '1');
+        @include vendor('flex-shrink', '1');
+        margin: 0 !important;
+        padding: 0 !important;
+        position: relative;
+        min-height: 512px;
+
+        &:before {
+            background: _palette(border);
+            content: '';
+            display: block;
+            height: 100%;
+            left: ($gutter * -0.5);
+            position: absolute;
+            top: 0;
+            width: 1px;
+        }
+
+        > :last-child {
+            margin-bottom: 0;
+        }
+
+        .icon {
+            position: absolute;
+            bottom:0;
+            left: 0;
+            margin: 0;
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            font-size: 3rem;
+            color: _palette(accent) !important;
+        }
+
+        .fact-intro, .fact-outro {
+            position: relative;
+            width: 100%;
+            height: 35%;
+            margin: 0;
+
+            p {
+                margin: 0;
+                display: table-cell;
+                text-align: center;
+                font-size: 1rem;
+            }
+        }
+
+        .fact-intro p {
+            vertical-align: bottom;
+            text-transform: uppercase;
+        }
+
+        .fact-outro p {
+            vertical-align: top;
+            text-transform: lowercase;
+        }
+
+
+        .fact {
+            position: relative;
+            width: 100%;
+            height: 30%;
+            margin: 0;
+
+            h3 {
+                margin: 0;
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;
+                text-transform: uppercase;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    article {
+        .off {
+            display: none;
+        }
+
+        .on.icon {
+            display: block;
+        }
+
+        .on.fact-intro {
+            display: table;
+
+            p {
+                color: #000000 !important;
+            }
+        }
+
+        .on.fact {
+            display: table;
+            
+            h3 {
+                color: #000000 !important;
+            }
+        }
+
+        .on.fact-outro {
+            display: table;
+
+            p {
+                color: #000000 !important;
+            }
+        }
+    }
+
+    article:hover {
+        background-color: _palette(accent) !important;
+
+        .on {
+            display: none;
+        }
+
+        .off.icon {
+            display: block;
+            color: _palette(accent-cp) !important;
+        }
+
+        .off.fact-intro {
+            display: table;
+
+            p {
+                color: #ffffff !important;
+            }
+        }
+
+        .off.fact {
+            display: table;
+            
+            h3 {
+                color: #ffffff !important;
+            }
+        }
+
+        .off.fact-outro {
+            display: table;
+            
+            p {
+                color: #ffffff !important;
+            }
+        }
+    }
+}
+
+.inverted .facts {
+    
+    article {
+
+        .on.fact-intro p {
+            color: #ffffff !important;
+        }
+
+        .on.fact h3 {
+            color: #ffffff !important;
+        }
+
+        .on.fact-outro p {
+            color: #ffffff !important;
+        }
+    }
+}

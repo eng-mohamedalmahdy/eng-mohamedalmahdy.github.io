@@ -1,0 +1,18 @@
+{%- assign show-title = include.show-title | default: true -%}
+<div {% if include.id %}id="{{ include.id }}"{% endif %} class="vertical-tabset">
+    {%- for tab in include.tabs -%}
+    {%- capture tab-id -%}tab{{ forloop.index }}-{{ tab.id | default: tab.title | slugify }}{%- endcapture -%}
+    <div id="{{ tab-id }}" class="vertical-tab">
+        {%- if forloop.first == true -%}
+        <input type="radio" name="{{ include.id }}" id="option-{{ tab-id }}" checked>
+        {%- else -%}
+        <input type="radio" name="{{ include.id }}" id="option-{{ tab-id }}">
+        {%- endif -%}
+        <label for="option-{{ tab-id }}" style="width: {{ include.header-width | default: 30 }}%;">{{ tab.title }}</label>
+        <section class="tab-panel" style="left: {{ include.header-width | default: 30 }}%;">
+            {% if show-title == true %}<h2>{{ tab.title }}</h2>{% endif %}
+            {{ tab.content }}
+        </section>
+    </div>
+    {%- endfor -%}
+</div>
