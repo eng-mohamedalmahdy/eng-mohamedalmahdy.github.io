@@ -58,9 +58,13 @@ permalink: pretty
 markdown: kramdown
 sass:
   sass_dir: _sass
+  sourcemap: never
   style: compressed
-  
-remote_theme: pages-themes/primer@v0.2.0
+
+theme: jekyll-theme-consulting
+remote-theme: apehex/jekyll-theme-consulting
+
+
 
 
 # Publication settings
@@ -78,11 +82,13 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username:  eng-mohamedalmahdy
 
 
+
+
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-redirect-from
-  - jekyll-remote-theme
 
 
 # Exclude from processing.
