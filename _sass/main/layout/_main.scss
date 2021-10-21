@@ -1,0 +1,26 @@
+/* Main */
+
+#main {
+    @include vendor('flex-grow', '1');
+    @include vendor('flex-shrink', '1');
+    width: 100%;
+
+    > .inner {
+        margin: 0 auto;
+        max-width: 110em;
+
+        section {
+            border-top: solid 2px _palette(border);
+            padding: 1em 1em 1em 4em;
+
+            &:first-of-type {
+                border-top: 0 !important;
+            }
+        }
+
+        #header {
+            padding: 2em 4em 1em 4em;
+            margin: 0;
+        }
+    }
+}

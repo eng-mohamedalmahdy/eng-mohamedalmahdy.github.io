@@ -1,0 +1,25 @@
+/* Footer */
+
+#footer {
+    .copyright {
+        margin: 0;
+        color: _palette(fg-light);
+        font-size: 0.9em;
+
+        a {
+            color: inherit;
+        }
+    }
+}
+
+/* Inverted */
+
+.inverted #footer {
+    .copyright {
+        color: _palette(fg-light-inverted);
+
+        a {
+            color: inherit;
+        }
+    }
+}

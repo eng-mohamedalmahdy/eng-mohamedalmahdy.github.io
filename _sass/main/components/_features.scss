@@ -1,0 +1,97 @@
+/* Features */
+
+.features {
+    $gutter: _size(gutter);
+
+    @include vendor('display', 'flex');
+    @include vendor('flex-wrap', 'wrap');
+    margin: 0 0 0 0;
+    width: 100%;
+
+    article {
+        @include vendor('align-items', 'center');
+        @include vendor('display', 'flex');
+        margin: 0 0 $gutter 0;
+        position: relative;
+        width: 50%;
+
+        .icon {
+            @include vendor('flex-grow', '0');
+            @include vendor('flex-shrink', '0');
+            display: block;
+            height: 10em;
+            width: 10em;
+            line-height: 10em;
+            margin: 0 _size(element-margin) 0 0;
+            background-size: 40%;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            text-align: center;
+
+            &:before {
+                z-index: 10;
+                color: _palette(accent);
+                font-size: 2.75rem;
+                position: relative;
+                top: 0.05em;
+            }
+
+            &:after {
+                @include vendor('transform', 'rotate(45deg)');
+                border-radius: 0.25rem;
+                border: solid 2px _palette(border);
+                content: '';
+                display: block;
+                height: 7em;
+                left: 50%;
+                margin: -3.5em 0 0 -3.5em;
+                position: absolute;
+                top: 50%;
+                width: 7em;
+            }
+        }
+
+        .content {
+            @include vendor('flex-grow', '1');
+            @include vendor('flex-shrink', '1');
+            width: 100%;
+
+            > :last-child {
+                margin-bottom: 0;
+            }
+
+            p {
+                color: _palette(fg);
+            }
+        }
+    }
+
+    article:hover {
+
+        .icon:before {
+            color: _palette(accent-cp) !important;
+        }
+
+        .content h3, .content p {
+            color: _palette(accent) !important;
+        }
+
+        .icon:after {
+            background-color: _palette(accent) !important;
+        }
+    }
+}
+
+/* Inverted */
+
+.inverted .features article {
+    .content h3, .content p {
+        color: _palette(fg-inverted);
+    }    
+}
+
+.inverted .features article:hover {
+    .content h3, .content p {
+        color: _palette(accent-cp) !important;
+    }    
+}
