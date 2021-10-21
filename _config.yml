@@ -77,9 +77,6 @@ description: >- # this means to ignore newlines until "baseurl:"
 github_username:  eng-mohamedalmahdy
 
 
-
-
-
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
