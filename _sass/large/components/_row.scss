@@ -1,9 +1,0 @@
-.row {
-    @include breakpoint('<=xlarge') {
-        @include html-grid(1.5em, 'xlarge');
-    }
-
-    @include breakpoint('<=large') {
-        @include html-grid(1.5em, 'large');
-    }
-}
