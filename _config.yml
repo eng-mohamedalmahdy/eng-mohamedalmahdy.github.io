@@ -57,8 +57,10 @@ defaults:
 permalink: pretty
 markdown: kramdown
 sass:
+  sass_dir: _sass
   sourcemap: never
   style: compressed
+  
 
 
 # Publication settings
