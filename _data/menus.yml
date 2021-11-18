@@ -14,6 +14,8 @@ default:
           url: /projects/myislamicapp
         - title: Giga man
           url: /projects/gigaman
+        - title: MusicHub
+          url: /projects/musichub
         - title: Schedule me
           url:  /projects/ScheduleMe
         - title: Memorise
